@@ -1,0 +1,42 @@
+<!DOCTYPE html><html><head><title>第七题</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h4 id="第七题">第七题</h4>
+
+<p>代码不能实现，相当于给每个点击事件都只输出了一个“4”，把循环体中的for该为let，就可以实现，因为let在循环体中声明的变量执行会形成一个块级作用域，且为私有的，它里面的代码不会收到全局的影响，单独传值。</p>
+
+<h4 id="第八题">第八题</h4>
+
+<p>闭包的作用就是把函数体中的代码保护起来，形成一个私有的作用域，使其与全局执行上下文中的代码不会影响。缺点就是，闭包执行不会被销毁，会增加浏览器的负荷</p>
+
+
+
+<h4 id="第九题">第九题</h4>
+
+<p>1.let和var的区别 <br>
+2.let不会变量提升， <br>
+3.let不能重复声明，否则会报语法错误 <br>
+4.当let再大括号里面声明时，执行会形成块级作用域（除对象和函数） <br>
+5.使用let可以解决暂时性死区问题 <br>
+6.let声明和仅仅是全局变量，和window没有关系，而var声明的变量不仅仅声明了变量，还给window增加了属性</p>
+
+<h4 id="第十题">第十题</h4>
+
+<p>将循环中的var改为let</p>
+
+<h4 id="第十一题">第十一题</h4>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">var <span class="hljs-keyword">b </span>= <span class="hljs-number">10</span><span class="hljs-comment">;</span>
+</div><div class="hljs-line">(function <span class="hljs-keyword">b() </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">b </span>= <span class="hljs-number">20</span><span class="hljs-comment">;</span>
+</div><div class="hljs-line">    console.log(<span class="hljs-keyword">b);</span>
+</div><div class="hljs-line"><span class="hljs-keyword"></span>})()<span class="hljs-comment">;</span>
+</div><div class="hljs-line">console.log(<span class="hljs-keyword">b);</span>
+</div></code></pre>
+
+<p>输出的结果为20 20, 因为当自执行函数执行时，并没有变量提升b <br>
+找上级上下文中的b为10来用，然后b等于20又将上级上下文中的b修改为20函数中输出b为20，全局上下文中输出b也为20， <br>
+解决方法：把b等于20修改为 var b=20；即可。</p></div></body></html>

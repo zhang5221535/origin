@@ -1,0 +1,54 @@
+<!DOCTYPE html><html><head><title>3.26作业</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h3 id="326作业">3.26作业</h3>
+
+
+
+<h6 id="第一题">第一题</h6>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span>
+</div><div class="hljs-line"><span class="javascript">        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params">x, y</span>) </span>{</span>
+</div><div class="hljs-line"><span class="javascript">            <span class="hljs-keyword">let</span> arr = x + y;</span>
+</div><div class="hljs-line"><span class="javascript"></span>
+</div><div class="hljs-line"><span class="javascript">            <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">n</span>) </span>{</span>
+</div><div class="hljs-line"><span class="javascript">                <span class="hljs-keyword">return</span> arr + n</span>
+</div><div class="hljs-line"><span class="javascript">            };</span>
+</div><div class="hljs-line"><span class="javascript"></span>
+</div><div class="hljs-line"><span class="javascript">        }</span>
+</div><div class="hljs-line"><span class="javascript">        <span class="hljs-keyword">let</span> res = fn(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>);</span>
+</div><div class="hljs-line"><span class="javascript">        <span class="hljs-built_in">console</span>.log(res);</span>
+</div><div class="hljs-line"><span class="javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div></code></pre>
+
+<h6 id="第九题">#第九题</h6>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-built_in">Array</span>.prototype.unique = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Unique</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> obj = {};
+</div><div class="hljs-line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">this</span>.length; i++) {
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> item = <span class="hljs-keyword">this</span>[i];
+</div><div class="hljs-line"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> obj[item] !== <span class="hljs-string">"undefined"</span>) {
+</div><div class="hljs-line"> <span class="hljs-keyword">this</span>[i] = <span class="hljs-keyword">this</span>[<span class="hljs-keyword">this</span>.length - <span class="hljs-number">1</span>];
+</div><div class="hljs-line"><span class="hljs-keyword">this</span>.length--;
+</div><div class="hljs-line"> i--;
+</div><div class="hljs-line"> <span class="hljs-keyword">continue</span>;
+</div><div class="hljs-line"> }
+</div><div class="hljs-line"> obj[item] = item;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">obj = <span class="hljs-literal">null</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> ary = [<span class="hljs-number">12</span>, <span class="hljs-number">23</span>, <span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">13</span>, <span class="hljs-number">12</span>, <span class="hljs-number">23</span>, <span class="hljs-number">14</span>, <span class="hljs-number">8</span>];
+</div><div class="hljs-line">ary.unique().sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(ary)
+</div><div class="hljs-line">    &lt;<span class="hljs-regexp">/script&gt;</span>
+</div></code></pre></div></body></html>

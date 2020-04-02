@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>珠峰培训</title>
+	<style>
+		body,
+		ul,
+		li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="price.css" />
+</head>
+
+<body>
+	<div class="wrap">
+		<div class="box">
+			<ul class="list">
+				<li>
+					<i class="minus"></i>
+					<em class="now">0</em>
+					<i class="add"></i>
+					<span>
+						单价：<strong class="default">12.5元 </strong> 小计：<strong class="plan">0元</strong>
+					</span>
+				</li>
+				<li>
+					<i class="minus"></i>
+					<em class="now"></em>
+					<i class="add"></i>
+					<span>
+						单价：<strong class="default">10.5元 </strong> 小计：<strong class="plan">0元</strong>
+					</span>
+				</li>
+				<li>
+					<i class="minus"></i>
+					<em class="now">0</em>
+					<i class="add"></i>
+					<span>
+						单价：<strong class="default">8.5元 </strong> 小计：<strong class="plan">0元</strong>
+					</span>
+				</li>
+				<li>
+					<i class="minus"></i>
+					<em class="now">0</em>
+					<i class="add"></i>
+					<span>
+						单价：<strong class="default">8元 </strong> 小计：<strong class="plan">0元</strong>
+					</span>
+				</li>
+				<li>
+					<i class="minus"></i>
+					<em class="now">0</em>
+					<i class="add"></i>
+					<span>
+						单价：<strong class="default">14.5元 </strong> 小计：<strong class="plan">0元</strong>
+					</span>
+				</li>
+			</ul>
+			<div class="info">
+				<span>商品合计：<em id="piece">0</em>件</span>
+				<span>共花费了：<em id="price">0</em>元</span>
+				<br />
+				<br />
+				<span>其中最贵的商品单价是：<em id="expensive">0</em>元</span>
+			</div>
+		</div>
+	</div>
+	<script>
+		//想要操作谁，先获取谁
+		let tree = (function () {
+			//所有的减号
+			let minus = document.querySelectorAll('.list .minus'),
+				//所有的加号
+				add = document.querySelectorAll('.list .add'),
+				//当前的价格 
+				now = document.querySelectorAll('.list .now'),
+				//默认的价格
+				defaultBox = document.querySelectorAll('.list .default'),
+				plan = document.querySelectorAll('.list .plan'),
+				//获取到件数
+				piece = document.getElementById('piece'),
+				//获取到价格
+				price = document.getElementById('price'),
+				//获取到最贵商品单价
+				expensive = document.getElementById('expensive');
+			let arr = Array.from(minus), //减号按钮
+				nowList = Array.from(now), //当前显示的价格，默认值为零   textContent: "8"
+				defaultBoxList = Array.from(defaultBox), //单品价格
+				planList = Array.from(plan); //事实的价格
+			console.dir(planList[0])
+
+			for (let i = 0; i < arr.length; i++) {
+
+				//先写加号实现的功能
+				let k = 1;
+				add[i].onclick = function () {
+					let
+						tree = planList[i].textContent,
+						leaf = parseFloat(defaultBoxList[i].textContent);
+
+					planList[i].textContent = leaf * k + "元";
+					nowList[i].textContent = parseFloat(tree) / leaf + 1;
+					++k;
+					return nowList[i].textContent, planList[i].textContent;
+				}
+
+				arr[i].onclick = function () {
+					let
+						tree = planList[i].textContent,
+						leaf = parseFloat(defaultBoxList[i].textContent);
+
+
+					planList[i].textContent = parseFloat(planList[i].textContent) - 12.5 + "元"
+
+					nowList[i].textContent = nowList[i].textContent - 1;
+
+				}
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				// arr[i].onclick = function () {
+				// 	if (now[i].textContent > 0) {
+				// 		now[i].textContent = parseFloat(planList[i].textContent) / parseFloat(defaultBoxList[i]
+				// 			.textContent);
+				// 	}
+
+				// 	if (nowList[i].textContent === "0") {
+
+				// 	} else {
+
+				// 		nowList[i].textContent = Number(nowList[i].textContent) - 1;
+				// 		//  Number(nowList[i].textContent) - parseFloat(defaultBoxList[i]
+				// 		// 	.textContent);
+				// 		if (nowList[i].textContent <= 0) {
+				// 			nowList[i].textContent = '0'
+				// 		}
+
+
+				// 	}
+
+				// }
+				// add[i].onclick = function () {
+
+
+				// 	if (nowList[i].textContent === "0") {
+				// 		let k = 1;
+
+				// 		planList[i].textContent = parseFloat(defaultBoxList[i].textContent) * k;
+				// 		k++;
+
+
+
+
+				// 	}
+				// }
+
+
+
+
+
+
+			}
+
+		})()
+	</script>
+</body>
+
+
+</html>

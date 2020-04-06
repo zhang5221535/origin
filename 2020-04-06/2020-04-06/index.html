@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <style>
+        .main {
+            background-color: #6c757d;
+            width: 1200px;
+            margin: auto;
+        }
+
+        .main div {
+            float: left;
+            font-size: 25px;
+            height: 80px;
+            line-height: 80px;
+            margin-left: 30px;
+
+        }
+
+        .main ul {
+            float: left;
+        }
+
+        .main li {
+            float: left;
+            margin-left: 30px;
+            font-size: 18px;
+            height: 80px;
+            line-height: 80px;
+            cursor: pointer;
+        }
+
+        .main li:hover {
+            color: lightblue;
+        }
+
+        .picture {
+            width: 1200px;
+            margin: auto;
+        }
+
+        .picture .icon {
+            width: 180px;
+            border: 1px #a1a1a1 solid;
+            margin-top: 5px;
+            float: left;
+            margin-left: 15px;
+            margin-top: 15px;
+
+        }
+
+        .picture .icon img {
+            width: 165px;
+            height: 165px;
+        }
+
+        .picture .icon li {
+            margin: 5px;
+            font-size: 15px;
+        }
+
+        .picture .icon p {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="every">
+        <div class="main clear">
+            <div>商城排序</div>
+            <ul class="clear">
+                <li data-pai="price">价格</li>
+                <li data-pai="time">时间</li>
+                <li data-pai="hot">销量</li>
+            </ul>
+
+        </div>
+        <div class="picture clear">
+            <!-- <div class="icon">
+                <img src="img/1.jpg" alt="">
+                <p>HUAWEI Mate 10 4GB+64GB 全网通版（亮黑色）</p>
+                <ul>
+                    <li>价格：￥3899.00</li>
+                    <li>销量：198</li>
+                    <li>时间：2017/03/15</li>
+                </ul>
+            </div> -->
+
+
+        </div>
+
+
+
+    </div>
+</body>
+<script src="js/index.js"></script>
+
+</html>

@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.box {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 30px auto;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+.box > ul {
+  overflow: hidden;
+  width: 3600px;
+}
+.box > ul > li {
+  float: left;
+  width: 600px;
+  height: 400px;
+  font-size: 30px;
+}
+.box > ul > li img {
+  width: 100%;
+  height: 100%;
+}
+.box .btn_box {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.box .btn_box > div {
+  width: 30px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  line-height: 50px;
+  text-align: center;
+}
+.box .btn_box .left_btn {
+  float: left;
+  cursor: pointer;
+}
+.box .btn_box .right_btn {
+  float: right;
+  cursor: pointer;
+}
+.box .tree {
+  position: absolute;
+  left: 200px;
+  top: 365px;
+}
+.box .tree em {
+  display: block;
+  overflow: hidden;
+  float: left;
+  border-radius: 50%;
+  border: 1 solid saddlebrown;
+  background-color: sandybrown;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  font-style: normal;
+  line-height: 25px;
+  margin-left: 10px;
+  cursor: pointer;
+}

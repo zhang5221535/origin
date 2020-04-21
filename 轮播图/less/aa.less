@@ -1,0 +1,52 @@
+@a: 100px;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#box {
+    width: @a;
+    height: @a;
+    background-color: salmon;
+    // animation: turnRound 1s linear infinite;
+    margin: auto;
+    position: relative;
+    left: 200px;
+
+
+
+    // &:hover {
+    //     //paused 代表停止，running   运动
+    //     animation-play-state: paused;
+    // }
+}
+
+// animation   动画
+// transition  过渡
+
+@keyframes move123 {
+    0% {
+        // from{} 
+        // to {}
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes turnRound {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

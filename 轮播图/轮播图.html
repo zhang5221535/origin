@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="less/6.css">
+
+</head>
+
+<body>
+    <!-- box 是我们的可视窗口 -->
+    <div class="box">
+
+
+        <!-- ul是我们的长条 -->
+
+        <ul class='list'>
+            <!-- ul 是一个长条 -->
+            <li>
+                <img src="https://cms-bucket.ws.126.net/2020/0227/f8e3f9e3j00q6cu9c0062c000go006yc.jpg" alt="">
+            </li>
+            <li>
+                <img src="https://cms-bucket.ws.126.net/2020/0306/9084f041j00q6rqcl00l2c000go006yc.jpg" alt="">
+            </li>
+            <li>
+                <img src="https://cms-bucket.ws.126.net/2020/0227/e986cfd0j00q6cu4v001hc000go006yc.jpg" alt="">
+            </li>
+            <li>
+                <img src="https://cms-bucket.ws.126.net/2020/0218/2f1f019fj00q5w7pw008sc000go006yc.jpg" alt="">
+            </li>
+            <li>
+                <img src="http://cms-bucket.ws.126.net/2020/0421/e93e2200p00q94okl00mpc000s600e3c.png" alt="">
+            </li>
+            <li>
+                <img src="https://cms-bucket.ws.126.net/2020/0227/f8e3f9e3j00q6cu9c0062c000go006yc.jpg" alt="">
+            </li>
+        </ul>
+        <div class="btn_box">
+
+            <div class="left_btn"> 》</div>
+            <div class="right_btn">《 </div>
+
+
+        </div>
+        <div class="tree">
+            <em>1</em>
+            <em>2</em>
+            <em>3</em>
+            <em>4</em>
+            <em>5</em>
+        </div>
+
+    </div>
+
+
+
+</body>
+<!-- <script>
+    let ul = document.querySelector('ul');
+    let start = 0;
+    let timer = setInterval(() => {
+        // let start = parseFloat(getComputedStyle(ul).left)
+
+        start -= 600;
+        if (start < -2400) {
+            start = 0
+        }
+        ul.style.transform = `translateX(${start}px)`;
+        ul.style.transition = '0.8s ease'
+
+    }, 1000);
+</script> -->
+
+
+<script>
+    let ul = document.querySelector('ul');
+    let start = 0;
+    let timer = null;
+
+    function move() {
+        timer = setInterval(() => {
+            start -= 600;
+            // ul.style.left = start  + 'px';
+            if (start < -3000) {
+                // 小于 -3000的时候 证明条已经出去了
+                // -3000的时候 我们显示的是伪第一张
+                start = 0;
+                ul.style.transition = 'none';
+                ul.style.transform = `translateX(${start}px)`;
+                //采用读写分离使浏览器强制渲染后在渲染
+
+                let i = ul.offsetHeight;
+                start -= 600;
+                ul.style.transition = 'all 0.3s';
+                // 闪到第一张之后  紧接着要网第二张移动 而不是再等1.5s;
+
+            } else {
+                ul.style.transition = 'all 0.3s';
+            }
+            ul.style.transform = `translateX(${start}px)`;
+        }, 1500);
+
+    }
+
+    move();
+    let box = document.querySelector('.box');
+    box.onmouseenter = function () {
+        clearInterval(timer)
+    };
+
+    box.onmouseleave = function () {
+        move();
+    }
+
+
+    let leftBtn = document.querySelector('.left_btn'),
+        rightBtn = document.querySelector('.right_btn');
+    leftBtn.onclick = function () {
+
+        let a = ul.style.transform;
+        start -= 600;
+        ul.style.transition = 'all 0.3s';
+        ul.style.transform = `translateX(${start}px)`;
+        if (start < -3000) {
+            start = 0;
+            ul.style.transition = 'none';
+            ul.style.transform = `translateX(${start}px)`;
+            //采用读写分离使浏览器强制渲染后在渲染
+
+            let i = ul.offsetHeight;
+            start -= 600;
+            ul.style.transform = `translateX(${start}px)`;
+            ul.style.transition = 'all 0.3s';
+        } else {
+            ul.style.transition = 'all 0.3s';
+        }
+
+
+    };
+
+
+    rightBtn.onclick = function () {
+        let a = ul.style.transform;
+        start += 600;
+        ul.style.transition = 'all 0.3s';
+        ul.style.transform = `translateX(${start}px)`;
+        if (start > 0) {
+            start = -3000;
+            ul.style.transition = 'none';
+            ul.style.transform = `translateX(${start}px)`;
+            //采用读写分离使浏览器强制渲染后在渲染
+
+            console.log(ul.style.transform)
+            let i = ul.offsetHeight;
+            start += 600;
+            ul.style.transform = `translateX(${start}px)`;
+            ul.style.transition = 'all 0.3s';
+        } else {
+            ul.style.transition = 'all 0.3s';
+        }
+    };
+    let emBox = document.querySelectorAll('em')
+    Array.from(emBox).forEach((item, index) => {
+        item.onclick = function () {
+
+            let a = ul.style.transform;
+            start -= 600;
+            ul.style.transition = 'all 0.3s';
+            ul.style.transform = `translateX(${start}px)`;
+            if (start < -3000) {
+                start = 0;
+                ul.style.transition = 'none';
+                ul.style.transform = `translateX(${start}px)`;
+                //采用读写分离使浏览器强制渲染后在渲染
+
+                let i = ul.offsetHeight;
+                start -= 600;
+                ul.style.transform = `translateX(${start}px)`;
+                ul.style.transition = 'all 0.3s';
+            } else {
+                ul.style.transition = 'all 0.3s';
+            }
+        }
+    })
+</script>
+
+</html>
